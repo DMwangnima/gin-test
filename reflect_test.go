@@ -5,8 +5,8 @@ import "testing"
 func TestJointUrl(t *testing.T) {
 	basicUrl := "hey"
 	test1Struct := []struct {
-		Name    string `uri:"name"`
-		Address string `uri:"address"`
+		Name    string `form:"name"`
+		Address string `form:"address"`
 	}{
 		{Name: "hello", Address: "china"},
 		{Name: "", Address: "America"},
@@ -22,11 +22,11 @@ func TestJointUrl(t *testing.T) {
 	}
 
 	test2Struct := []struct {
-		Age1 int   `uri:"age1"`
-		Age2 int8  `uri:"age2"`
-		Age3 int16 `uri:"age3"`
-		Age4 int32 `uri:"age4"`
-		Age5 int64 `uri:"age5"`
+		Age1 int   `form:"age1"`
+		Age2 int8  `form:"age2"`
+		Age3 int16 `form:"age3"`
+		Age4 int32 `form:"age4"`
+		Age5 int64 `form:"age5"`
 	}{
 		{Age1: 12, Age2: 12, Age3: 12, Age4: 12, Age5: 12},
 		{Age1: 0, Age2: 0, Age3: 0, Age4: 0, Age5: 0},
@@ -38,8 +38,8 @@ func TestJointUrl(t *testing.T) {
 	}
 
 	test3Struct := []struct {
-		Name string `uri:"name"`
-		Age  int    `uri:"age"`
+		Name string `form:"name"`
+		Age  int    `form:"age"`
 	}{
 		{Name: "hello", Age: 5},
 		{Name: "", Age: 5},
@@ -47,8 +47,8 @@ func TestJointUrl(t *testing.T) {
 		{Name: "", Age: 0},
 	}
 	test3StructPtr := []*struct{
-		Name string `uri:"name"`
-		Age  int    `uri:"age"`
+		Name string `form:"name"`
+		Age  int    `form:"age"`
 	}{
 		&test3Struct[0],
 		&test3Struct[1],

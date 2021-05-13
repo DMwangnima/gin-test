@@ -30,7 +30,7 @@ func JointUrl(basic string, query interface{}) (url string) {
 		prev = true
 		fieldInfo := v.Type().Field(i)
 		tag := fieldInfo.Tag
-		uri := tag.Get("uri")
+		uri := tag.Get("form")
 		jointOneQueryUrl(uri, &urlBuilder, v.Field(i))
 	}
 	return urlBuilder.String()
