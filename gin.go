@@ -83,9 +83,11 @@ func (c *testContext) do(t *testing.T, url string, withSession, setSession bool,
 	if err != nil {
 		t.Fatal(err)
 	}
-	err = json.Unmarshal(respBytes, resp)
-	if err != nil {
-		t.Fatal(err)
+	if len(respBytes) > 0 && resp != nil {
+		err = json.Unmarshal(respBytes, resp)
+		if err != nil {
+			t.Fatal(err)
+		}
 	}
 }
 
